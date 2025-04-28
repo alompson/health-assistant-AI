@@ -17,7 +17,7 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v2
       with:
-        node-version: '18'  # Updated from 14 to 18
+        node-version: '18'
 
     - name: Install dependencies
       run: |
@@ -32,6 +32,10 @@ jobs:
         git config --global user.name "GitHub Actions"
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
     
+    - name: Set GitHub token for deployment
+      run: |
+        git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+
     - name: Deploy to GitHub Pages
       run: |
         npm install --save-dev gh-pages
