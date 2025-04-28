@@ -27,6 +27,11 @@ jobs:
       run: |
         npm run build:web
 
+    - name: Set Git user details for deployment
+      run: |
+        git config --global user.name "GitHub Actions"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+    
     - name: Deploy to GitHub Pages
       run: |
         npm install --save-dev gh-pages
