@@ -3,10 +3,13 @@
   "main": "expo-router/entry",
   "version": "1.0.0",
   "private": true,
+  "homepage": "https://alompson.github.io/health-assistant-AI",
   "scripts": {
     "dev": "EXPO_NO_TELEMETRY=1 expo start",
     "build:web": "expo export --platform web",
-    "lint": "expo lint"
+    "lint": "expo lint",
+    "predeploy": "npm run build:web",
+    "deploy": "gh-pages -d web"
   },
   "dependencies": {
     "@expo-google-fonts/inter": "^0.2.3",
@@ -44,6 +47,7 @@
   "devDependencies": {
     "@babel/core": "^7.25.2",
     "@types/react": "~18.3.12",
+    "gh-pages": "^6.3.0",
     "typescript": "^5.3.3"
   }
 }
